@@ -5,9 +5,11 @@ import sys
 import pyautogui
 from itertools import islice
 
-def get_n_items(d, n):
-    return dict(islice(d.items(), 0, n))
-
+def get_n_items(d,f,n):
+    """
+    docstring
+    """
+    return dict(islice(d.items(),f, n))
 
 pyautogui.PAUSE = 2.5
 pyautogui.FAILSAFE = True
@@ -39,12 +41,13 @@ def gui_interaction():
     pyautogui.click()
     oklimit = None
     while oklimit is None:
-        time.sleep(30)
+        time.sleep(100)
         oklimit = pyautogui.locateOnScreen('oklimit.png')
     pyautogui.moveTo(oklimit)
     pyautogui.click()
     closesim = pyautogui.locateOnScreen('closesim.png')
     pyautogui.moveTo(closesim)
+    pyautogui.hotkey("alt", "f4")
     pyautogui.click()
 
 scenarios = {
@@ -181,7 +184,7 @@ scenarios = {
 # numer seeda ( nr w dzienniku * 7)
 seed = 6 * 7 
 time.sleep(5)
-sliced_scenarios = get_n_items(scenarios, 1)
+sliced_scenarios = get_n_items(scenarios, 3, 9)
 for scenario in sliced_scenarios:
     areaX = scenarios[scenario]["areaX"]
     areaY = scenarios[scenario]["areaY"]
