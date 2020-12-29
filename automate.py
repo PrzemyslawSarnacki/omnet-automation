@@ -7,7 +7,10 @@ from itertools import islice
 
 def get_n_items(d,f,n):
     """
-    docstring
+    return sliced dictionary 
+    f - means from (first element in the sliced array)
+    n - means to (last element in the sliced array)
+    if n exceeds size of array nothing serious happens (last element is treated as n)
     """
     return dict(islice(d.items(),f, n))
 
@@ -196,8 +199,7 @@ for scenario in sliced_scenarios:
     
     newGW = ""
     for numberOfNodes in numbersOfNodes:
-        print(numberOfNodes)
-        print(newGW)
+        print(f"scenario {scenario} {numberOfNodes}")
         if scenarios[scenario]["numberOfGateways"] == 1:
             numberOfGW = 1
             posX = scenarios[scenario]["areaX"] / 2
