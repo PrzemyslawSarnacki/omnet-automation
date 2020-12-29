@@ -5,19 +5,21 @@ import sys
 import pyautogui
 from itertools import islice
 
-def get_n_items(d,f,n):
-    """
-    return sliced dictionary 
-    f - means from (first element in the sliced array)
-    n - means to (last element in the sliced array)
-    if n exceeds size of array nothing serious happens (last element is treated as n)
-    """
-    return dict(islice(d.items(),f, n))
 
 pyautogui.PAUSE = 2.5
 pyautogui.FAILSAFE = True
 
 RESULTS = 'C:/Users/Przemyslaw/omnet/omnetpp-5.2.1/samples/flora-0.8/simulations/results' 
+
+def get_n_items(d,f,n):
+    """
+    return sliced dictionary 
+    f - means from (first element in the sliced array)
+    n - means to (last element in the sliced array)
+    if n exceeds size of array nothing 
+    serious happens (last element is treated as n)
+    """
+    return dict(islice(d.items(),f, n))
 
 def copy_results(dir, scenario, numberOfNodes):
     files = os.listdir(dir)
@@ -185,7 +187,7 @@ scenarios = {
 }
 
 # numer seeda ( nr w dzienniku * 7)
-seed = 6 * 7 
+seed = 5 * 7 
 time.sleep(5)
 sliced_scenarios = get_n_items(scenarios, 3, 9)
 for scenario in sliced_scenarios:
@@ -198,7 +200,7 @@ for scenario in sliced_scenarios:
     sigma = scenarios[scenario]["sigma"]
     
     newGW = ""
-    for numberOfNodes in numbersOfNodes:
+    for numberOfNodes in numbersOfNodes[:2]:
         print(f"scenario {scenario} {numberOfNodes}")
         if scenarios[scenario]["numberOfGateways"] == 1:
             numberOfGW = 1
