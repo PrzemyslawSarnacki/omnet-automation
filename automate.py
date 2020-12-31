@@ -69,7 +69,7 @@ scenarios = {
     # interwał z jakim są generowane kolejne pakiety
     "timeToNextPacket" : 100,
     # sigma  w  modelu  LoRaLogNormalShadowing
-    "sigma" : 5,
+    "sigma" : 2,
     },
     2:
     {
