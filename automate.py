@@ -188,7 +188,7 @@ scenarios = {
 # numer seeda ( nr w dzienniku * 7)
 seed = 5 * 7 
 time.sleep(5)
-sliced_scenarios = get_n_items(scenarios, 0, 9)
+sliced_scenarios = get_n_items(scenarios, 0, 1)
 for scenario in sliced_scenarios:
     areaX = scenarios[scenario]["areaX"]
     areaY = scenarios[scenario]["areaY"]
@@ -199,7 +199,7 @@ for scenario in sliced_scenarios:
     sigma = scenarios[scenario]["sigma"]
     
     newGW = ""
-    for numberOfNodes in numbersOfNodes[2:]:
+    for numberOfNodes in numbersOfNodes[:2]:
         print(f"scenario {scenario} {numberOfNodes}")
         if scenarios[scenario]["numberOfGateways"] == 1:
             numberOfGW = 1
