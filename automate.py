@@ -199,7 +199,7 @@ for scenario in sliced_scenarios:
     sigma = scenarios[scenario]["sigma"]
     
     newGW = ""
-    for numberOfNodes in numbersOfNodes[:2]:
+    for numberOfNodes in numbersOfNodes:
         print(f"scenario {scenario} {numberOfNodes}")
         if scenarios[scenario]["numberOfGateways"] == 1:
             numberOfGW = 1
