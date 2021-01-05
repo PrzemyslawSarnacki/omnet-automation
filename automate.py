@@ -186,9 +186,9 @@ scenarios = {
 }
 
 # numer seeda ( nr w dzienniku * 7)
-seed = 5 * 7 
+seed = 4 * 7 
 time.sleep(5)
-sliced_scenarios = get_n_items(scenarios, 0, 1)
+sliced_scenarios = get_n_items(scenarios, 0, 9)
 for scenario in sliced_scenarios:
     areaX = scenarios[scenario]["areaX"]
     areaY = scenarios[scenario]["areaY"]
